@@ -12,7 +12,7 @@ const COUNTDOWN_SECONDS = 10;
 export class CounterPauseResumeComponent implements OnInit {
   @ViewChild('btnPause') btnPause: ElementRef;
   @ViewChild('btnResume') btnResume: ElementRef;
-  private running: false;
+  private running = false;
   count: number;
 
   constructor() {
