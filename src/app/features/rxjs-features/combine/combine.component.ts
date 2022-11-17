@@ -1,14 +1,13 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {
-  combineLatest,
   combineLatestWith,
-  filter,
   fromEvent,
   interval,
-  map, mergeMap,
-  Observable, of,
+  map,
+  mergeMap,
+  Observable,
+  of,
   share,
-  Subject, take,
   tap,
   withLatestFrom
 } from 'rxjs';
@@ -30,7 +29,7 @@ export class CombineComponent implements OnInit, AfterViewInit {
 
   offset: number = 0;
 
-  childSource1$: Observable<number> = interval(1000).pipe(
+  childSource1$: Observable<number> = interval(3000).pipe(
     watch('BaseInterval', RXJS_WATCH_DURATION),
     share(),
   );

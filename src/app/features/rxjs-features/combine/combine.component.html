@@ -1,5 +1,5 @@
 <app-page-header title="Combine" descriptionHtml="<small><i>Use <a href='https://github.com/xripcsu/rxjs-watcher'>RxJS Watcher</a>  or Console for monitoring</i></small>"></app-page-header>
-<h4>Child observables: {{childSource1$ | async}} / {{childSource2$ | async}} / {{childSource3$ | async}}</h4>
+<h6>Child observables: {{childSource1$ | async}} / {{childSource2$ | async}} / {{childSource3$ | async}}</h6>
 
 <div class="mb-4">
   <h5>withLatestFrom</h5>
@@ -16,14 +16,16 @@
 </div>
 
 <div class="mb-4">
-  <h5>Custom (with NgRx selectors + offset parameter)</h5>
+  <h5>withLatestFrom (with NgRx selectors + offset parameter)</h5>
   <div class="card bg-primary text-bg-dark text-center" #customClickSource>
     <h6 class="card-title">Click me to emit event to observer</h6>
   </div>
 </div>
 
-<div>
-  <label>Offset</label><input type="number" [(ngModel)]="offset">
+
+<div class="mb-3">
+  <label for="offset" class="form-label">Offset</label>
+  <input type="number" class="form-control" id="offset" [(ngModel)]="offset">
 </div>
 
 <app-counters></app-counters>
