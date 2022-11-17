@@ -4,6 +4,8 @@ import { CombineComponent } from './combine/combine.component';
 import { RxJsFeaturesRoutingModule } from './rx-js-features-routing.module';
 import { HomeComponent } from './home/home.component';
 import { SharedModule } from '../../shared/shared.module';
+import { NgRxFeaturesModule } from '../ngrx-features/ng-rx-features.module';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,9 @@ import { SharedModule } from '../../shared/shared.module';
   imports: [
     CommonModule,
     RxJsFeaturesRoutingModule,
-    SharedModule
+    SharedModule,
+    NgRxFeaturesModule,
+    FormsModule
   ]
 })
 export class RxJsFeaturesModule { }
