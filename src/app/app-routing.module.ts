@@ -5,7 +5,7 @@ import { TRACE_ROUTING } from './shared/constants';
 import { Page404Component } from './features/page404/page404.component';
 
 const routes: Routes = [
-  { path: 'rxjs', loadChildren: () => import('./features/rx-js-features/rx-js-features.module').then(m => m.RxJsFeaturesModule) },
+  { path: 'rxjs', loadChildren: () => import('./features/rxjs-features/rx-js-features.module').then(m => m.RxJsFeaturesModule) },
   { path: 'home', component: HomeComponent },
   { path: '',   redirectTo: '/rxjs/combine', pathMatch: 'full' },   // default
   { path: '**', component: Page404Component}
