@@ -1,9 +1,11 @@
 <nav class="navbar navbar-dark bg-secondary">
-  <span class="navbar-brand ms-2 ">{{title}}</span>
+  <span class="navbar-brand ms-2">{{ title }}</span>
 </nav>
 <div class="mb-4">
   <div class="mb-2" *ngIf="description">
-    <small><i>{{description}}</i></small>
+    <small
+      ><i>{{ description }}</i></small
+    >
   </div>
   <div class="mb-2" *ngIf="descriptionHtml" [innerHTML]="descriptionHtml"></div>
 </div>

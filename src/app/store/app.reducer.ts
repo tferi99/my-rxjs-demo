@@ -18,11 +18,29 @@ export const initialState: AppState = {
 export const reducer = createReducer(
   initialState,
 
-  on(AppActions.loadApps, state => state),
-  on(AppActions.incrementCounter1, state => ({...state, counter1: state.counter1 + 1})),
-  on(AppActions.incrementCounter2, state => ({...state, counter2: state.counter2 + 1})),
-  on(AppActions.incrementCounter3, state => ({...state, counter3: state.counter3 + 1})),
-  on(AppActions.decrementCounter1, state => ({...state, counter1: state.counter1 - 1})),
-  on(AppActions.decrementCounter2, state => ({...state, counter2: state.counter2 - 1})),
-  on(AppActions.decrementCounter3, state => ({...state, counter3: state.counter3 - 1})),
+  on(AppActions.loadApps, (state) => state),
+  on(AppActions.incrementCounter1, (state) => ({
+    ...state,
+    counter1: state.counter1 + 1,
+  })),
+  on(AppActions.incrementCounter2, (state) => ({
+    ...state,
+    counter2: state.counter2 + 1,
+  })),
+  on(AppActions.incrementCounter3, (state) => ({
+    ...state,
+    counter3: state.counter3 + 1,
+  })),
+  on(AppActions.decrementCounter1, (state) => ({
+    ...state,
+    counter1: state.counter1 - 1,
+  })),
+  on(AppActions.decrementCounter2, (state) => ({
+    ...state,
+    counter2: state.counter2 - 1,
+  })),
+  on(AppActions.decrementCounter3, (state) => ({
+    ...state,
+    counter3: state.counter3 - 1,
+  }))
 );

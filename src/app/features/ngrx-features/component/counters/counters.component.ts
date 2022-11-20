@@ -1,28 +1,20 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { selectCounter1, selectCounter2, selectCounter3 } from '../../../store/app.selectors';
-import {
-  decrementCounter1,
-  decrementCounter2,
-  decrementCounter3,
-  incrementCounter1,
-  incrementCounter2, incrementCounter3
-} from '../../../store/app.actions';
+import { selectCounter1, selectCounter2, selectCounter3 } from '../../../../store/app.selectors';
+import { decrementCounter1, decrementCounter2, decrementCounter3, incrementCounter1, incrementCounter2, incrementCounter3 } from '../../../../store/app.actions';
 
 @Component({
   selector: 'app-counters',
   templateUrl: './counters.component.html',
-  styleUrls: ['./counters.component.scss']
+  styleUrls: ['./counters.component.scss'],
 })
 export class CountersComponent implements OnInit {
   counter1$!: Observable<number>;
   counter2$!: Observable<number>;
   counter3$!: Observable<number>;
 
-  constructor(
-    private store: Store
-  ) {}
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     // show values without offset

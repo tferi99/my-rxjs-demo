@@ -2,16 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { TITLE } from '../../shared/constants';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-rxjs-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   title = TITLE;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

@@ -5,14 +5,27 @@ import { TRACE_ROUTING } from './shared/constants';
 import { Page404Component } from './features/page404/page404.component';
 
 const routes: Routes = [
-  { path: 'rxjs', loadChildren: () => import('./features/rxjs-features/rx-js-features.module').then(m => m.RxJsFeaturesModule) },
-  { path: 'home', component: HomeComponent },
-  { path: '',   redirectTo: '/rxjs/combine', pathMatch: 'full' },   // default
-  { path: '**', component: Page404Component}
+  {
+    path: 'rxjs',
+    loadChildren: () =>
+      import('./features/rxjs-features/rxjs-features.module').then(
+        (m) => m.RxJsFeaturesModule
+      ),
+  },
+  {
+    path: 'ngrx',
+    loadChildren: () =>
+      import('./features/ngrx-features/ngrx-features.module').then(
+        (m) => m.NgRxFeaturesModule
+      ),
+  },
+
+  { path: '', redirectTo: '/ngrx/entity', pathMatch: 'full' }, // default
+  { path: '**', component: Page404Component },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, {enableTracing: TRACE_ROUTING})],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { enableTracing: TRACE_ROUTING })],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

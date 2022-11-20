@@ -17,11 +17,7 @@ import * as fromApp from './store/app.reducer';
 import { AppEffects } from './store/app.effects';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent,
-    Page404Component
-  ],
+  declarations: [AppComponent, HomeComponent, Page404Component],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,11 +25,14 @@ import { AppEffects } from './store/app.effects';
     ToastrModule.forRoot(),
     StoreModule.forRoot({}, {}),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    StoreDevtoolsModule.instrument({
+      maxAge: 25,
+      logOnly: environment.production,
+    }),
     StoreModule.forFeature(appFeatureKey, fromApp.reducer),
     EffectsModule.forFeature([AppEffects]),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

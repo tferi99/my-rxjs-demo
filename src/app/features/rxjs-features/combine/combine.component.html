@@ -1,5 +1,11 @@
-<app-page-header title="Combine" descriptionHtml="<small><i>Use <a href='https://github.com/xripcsu/rxjs-watcher'>RxJS Watcher</a>  or Console for monitoring</i></small>"></app-page-header>
-<h6>Child observables: {{childSource1$ | async}} / {{childSource2$ | async}} / {{childSource3$ | async}}</h6>
+<app-page-header
+  title="Combine"
+  descriptionHtml="<small><i>Use <a href='https://github.com/xripcsu/rxjs-watcher'>RxJS Watcher</a>  or Console for monitoring</i></small>"
+></app-page-header>
+<h6>
+  Child observables: {{ childSource1$ | async }} / {{ childSource2$ | async }} /
+  {{ childSource3$ | async }}
+</h6>
 
 <div class="mb-4">
   <h5>withLatestFrom</h5>
@@ -22,10 +28,9 @@
   </div>
 </div>
 
-
 <div class="mb-3">
   <label for="offset" class="form-label">Offset</label>
-  <input type="number" class="form-control" id="offset" [(ngModel)]="offset">
+  <input type="number" class="form-control" id="offset" [(ngModel)]="offset" />
 </div>
 
 <app-counters></app-counters>

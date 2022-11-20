@@ -1,0 +1,45 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Counters</h5>
+    <div class="d-flex justify-content-around">
+      <div class="card">
+        <div class="card-body">
+          <span class="me-2 fw-bolder">1:</span>
+          <button class="btn btn-primary me-2" (click)="decrementCounter1()">
+            -
+          </button>
+          <span class="me-2">{{ counter1$ | async }}</span>
+          <button class="btn btn-primary me-2" (click)="incrementCounter1()">
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <span class="me-2 fw-bolder">2:</span>
+          <button class="btn btn-primary me-2" (click)="decrementCounter2()">
+            -
+          </button>
+          <span class="me-2">{{ counter2$ | async }}</span>
+          <button class="btn btn-primary me-2" (click)="incrementCounter2()">
+            +
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <span class="me-2 fw-bolder">3:</span>
+          <button class="btn btn-primary me-2" (click)="decrementCounter3()">
+            -
+          </button>
+          <span class="me-2">{{ counter3$ | async }}</span>
+          <button class="btn btn-primary me-2" (click)="incrementCounter3()">
+            +
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

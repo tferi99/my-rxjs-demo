@@ -1,0 +1,16 @@
+<app-page-header
+  title="NgRx Entity Test"
+  descriptionHtml="<small><i>Use <a href='https://chrome.google.com/webstore/detail/redux-devtools'>Redux DevTools</a>  or Console for monitoring</i></small>"
+></app-page-header>
+
+<div class="mb-4">
+  <h5>Set config variables</h5>
+  <div class="row">
+    <form class="row g-3">
+      <div class="col-2"><label for="config1">Password</label></div>
+      <div class="col-8"><input type="text" class="form-control" id="config1" [ngModel]="(config1$ | async)?.value" placeholder="Config 1"></div>
+      <div class="col-2"><button class="btn btn-primary mb-3" (click)="saveConfig1()">OK</button></div>
+    </form>
+  </div>
+</div>
+
