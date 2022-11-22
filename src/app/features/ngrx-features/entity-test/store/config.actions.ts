@@ -8,37 +8,37 @@ export const initConfigs = createAction(
 
 export const loadConfigs = createAction(
   '[Config/API] Load Configs',
-  props<{ Configs: Config[] }>()
+  props<{ configs: Config[] }>()
 );
 
 export const addConfig = createAction(
   '[Config/API] Add Config',
-  props<{ Config: Config }>()
+  props<{ config: Config }>()
 );
 
 export const upsertConfig = createAction(
   '[Config/API] Upsert Config',
-  props<{ Config: Config }>()
+  props<{ config: Config }>()
 );
 
 export const addConfigs = createAction(
   '[Config/API] Add Configs',
-  props<{ Configs: Config[] }>()
+  props<{ configs: Config[] }>()
 );
 
 export const upsertConfigs = createAction(
   '[Config/API] Upsert Configs',
-  props<{ Configs: Config[] }>()
+  props<{ configs: Config[] }>()
 );
 
 export const updateConfig = createAction(
   '[Config/API] Update Config',
-  props<{ Config: Update<Config> }>()
+  props<{ config: Update<Config> }>()
 );
 
 export const updateConfigs = createAction(
   '[Config/API] Update Configs',
-  props<{ Configs: Update<Config>[] }>()
+  props<{ configs: Update<Config>[] }>()
 );
 
 export const deleteConfig = createAction(

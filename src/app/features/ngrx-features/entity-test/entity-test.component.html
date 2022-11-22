@@ -7,10 +7,20 @@
   <h5>Set config variables</h5>
   <div class="row">
     <form class="row g-3">
-      <div class="col-2"><label for="config1">Password</label></div>
-      <div class="col-8"><input type="text" class="form-control" id="config1" [ngModel]="(config1$ | async)?.value" placeholder="Config 1"></div>
+      <div class="col-2"><label for="config1">Config 1</label></div>
+      <div class="col-8"><input type="text" name="config1" class="form-control" id="config1" [ngModel]="(config1$ | async)?.value" (ngModelChange)="config1Changed($event)" placeholder="Config 1"></div>
       <div class="col-2"><button class="btn btn-primary mb-3" (click)="saveConfig1()">OK</button></div>
+
+      <div class="col-2"><label for="config2">Config 2</label></div>
+      <div class="col-8"><input type="text" name="config2" class="form-control" id="config2" [ngModel]="(config2$ | async)?.value" (ngModelChange)="config2Changed($event)" placeholder="Config 2"></div>
+      <div class="col-2"><button class="btn btn-primary mb-3" (click)="saveConfig2()">OK</button></div>
+
+      <div class="col-2"><label for="config3">Config 3</label></div>
+      <div class="col-8"><input type="text" name="config3" class="form-control" id="config3" [ngModel]="(config3$ | async)?.value" (ngModelChange)="config3Changed($event)" placeholder="Config 3"></div>
+      <div class="col-2"><button class="btn btn-primary mb-3" (click)="saveConfig3()">OK</button></div>
     </form>
   </div>
 </div>
 
+<app-entity-test-monitor></app-entity-test-monitor>
+<app-entity-test-dump></app-entity-test-dump>

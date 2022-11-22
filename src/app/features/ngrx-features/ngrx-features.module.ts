@@ -10,9 +10,11 @@ import * as fromConfig from './entity-test/store/config.reducer';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ConfigEffects } from './entity-test/store/config.effects';
+import { EntityTestDumpComponent } from './entity-test/entity-test-dump/entity-test-dump.component';
+import { EntityTestMonitorComponent } from './entity-test/entity-test-monitor/entity-test-monitor.component';
 
 @NgModule({
-  declarations: [CountersComponent, NgrxHomeComponent, EntityTestComponent],
+  declarations: [CountersComponent, NgrxHomeComponent, EntityTestComponent, EntityTestDumpComponent, EntityTestMonitorComponent],
   imports: [
     CommonModule,
     FormsModule,

@@ -22,22 +22,22 @@ export const initialState: ConfigState = adapter.getInitialState({
 export const reducer = createReducer(
   initialState,
   on(ConfigActions.addConfig,
-    (state, action) => adapter.addOne(action.Config, state)
+    (state, action) => adapter.addOne(action.config, state)
   ),
   on(ConfigActions.upsertConfig,
-    (state, action) => adapter.upsertOne(action.Config, state)
+    (state, action) => adapter.upsertOne(action.config, state)
   ),
   on(ConfigActions.addConfigs,
-    (state, action) => adapter.addMany(action.Configs, state)
+    (state, action) => adapter.addMany(action.configs, state)
   ),
   on(ConfigActions.upsertConfigs,
-    (state, action) => adapter.upsertMany(action.Configs, state)
+    (state, action) => adapter.upsertMany(action.configs, state)
   ),
   on(ConfigActions.updateConfig,
-    (state, action) => adapter.updateOne(action.Config, state)
+    (state, action) => adapter.updateOne(action.config, state)
   ),
   on(ConfigActions.updateConfigs,
-    (state, action) => adapter.updateMany(action.Configs, state)
+    (state, action) => adapter.updateMany(action.configs, state)
   ),
   on(ConfigActions.deleteConfig,
     (state, action) => adapter.removeOne(action.id, state)
@@ -46,7 +46,7 @@ export const reducer = createReducer(
     (state, action) => adapter.removeMany(action.ids, state)
   ),
   on(ConfigActions.loadConfigs,
-    (state, action) => adapter.setAll(action.Configs, state)
+    (state, action) => adapter.setAll(action.configs, state)
   ),
   on(ConfigActions.clearConfigs,
     state => adapter.removeAll(state)
@@ -59,3 +59,4 @@ export const {
   selectAll,
   selectTotal,
 } = adapter.getSelectors();
+
