@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Config } from './entity-test.model';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectConfig } from './store/config.selectors';
-import { upsertConfig } from './store/config.actions';
+import { selectAllConfigs, selectConfig } from './store/config.selectors';
+import { addConfig, addConfigs, deleteConfig, upsertConfig } from './store/config.actions';
 import { ConfigState } from './store/config.reducer';
 
 export const CONFIG1 = 'config1';
@@ -16,6 +16,7 @@ export const CONFIG3 = 'config3';
   styleUrls: ['./entity-test.component.scss']
 })
 export class EntityTestComponent implements OnInit {
+  configs$!: Observable<Config[]>;
   config1$!: Observable<Config | undefined>;
   config1: string = '';
   config2$!: Observable<Config | undefined>;
@@ -26,9 +27,16 @@ export class EntityTestComponent implements OnInit {
   constructor(private store: Store) { }
 
   ngOnInit(): void {
+    this.configs$ = this.store.select(selectAllConfigs);
     this.config1$ = this.store.select(selectConfig(CONFIG1));
     this.config2$ = this.store.select(selectConfig(CONFIG2));
     this.config3$ = this.store.select(selectConfig(CONFIG3));
+
+    this.store.dispatch(addConfigs({configs: [
+      {name: 'cica', value: '111'},
+      {name: 'kutya', value: '222'},
+      {name: 'malac', value: '333'},
+    ]}));
   }
 
   config1Changed(value: string) {
@@ -53,5 +61,17 @@ export class EntityTestComponent implements OnInit {
 
   saveConfig3() {
     this.store.dispatch(upsertConfig({config: {name: CONFIG3, value: this.config3}}));
+  }
+
+  deleteConfig1() {
+    this.store.dispatch(deleteConfig({id: CONFIG1}));
+  }
+
+  deleteConfig2() {
+    this.store.dispatch(deleteConfig({id: CONFIG2}));
+  }
+
+  deleteConfig3() {
+    this.store.dispatch(deleteConfig({id: CONFIG3}));
   }
 }

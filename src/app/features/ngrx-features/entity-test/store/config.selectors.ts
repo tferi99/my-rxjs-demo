@@ -12,7 +12,9 @@ export const selectAllConfigEntities = createSelector(
 
 export const selectAllConfigs = createSelector(
   selectConfigState,
-  fromConfig.selectAll
+  fromConfig.selectAll,
+//  (state, configs) => configs ? configs : [] as Config[]
+//  configs => configs
 );
 
 export const selectConfig = (name: string) => createSelector(

@@ -12,9 +12,10 @@ import { EffectsModule } from '@ngrx/effects';
 import { ConfigEffects } from './entity-test/store/config.effects';
 import { EntityTestDumpComponent } from './entity-test/entity-test-dump/entity-test-dump.component';
 import { EntityTestMonitorComponent } from './entity-test/entity-test-monitor/entity-test-monitor.component';
+import { EntityTableComponent } from './entity-test/entity-table/entity-table.component';
 
 @NgModule({
-  declarations: [CountersComponent, NgrxHomeComponent, EntityTestComponent, EntityTestDumpComponent, EntityTestMonitorComponent],
+  declarations: [CountersComponent, NgrxHomeComponent, EntityTestComponent, EntityTestDumpComponent, EntityTestMonitorComponent, EntityTableComponent],
   imports: [
     CommonModule,
     FormsModule,
