@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Config } from './entity-test.model';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
-import { selectConfig } from './store/config.selectors';
-import { upsertConfig } from './store/config.actions';
+import { addConfigs, upsertConfig } from './store/config.actions';
 import { ConfigState } from './store/config.reducer';
+import { selectConfig } from './store/config.selectors';
 
 export const CONFIG1 = 'config1';
 export const CONFIG2 = 'config2';
@@ -29,6 +29,13 @@ export class EntityTestComponent implements OnInit {
     this.config1$ = this.store.select(selectConfig(CONFIG1));
     this.config2$ = this.store.select(selectConfig(CONFIG2));
     this.config3$ = this.store.select(selectConfig(CONFIG3));
+
+    this.store.dispatch(addConfigs({
+      configs: [
+        {name: 'valami:', value: '555555'},
+        {name: 'semmi:', value: '0'},
+      ]
+    }));
   }
 
   config1Changed(value: string) {

@@ -1,0 +1,37 @@
+<h4>Config entries</h4>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="#">#</th>
+    <th scope="Name">First</th>
+    <th scope="Value">Last</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of configs$ | async; let idx = index">
+      <th scope="row">{{idx}}</th>
+      <td>{{c.name}}</td>
+      <td>{{c.value}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="mt-5 mb-5">
+  <h3>Expressions calculated from (possible nullish) selector</h3>
+  <div class="mb-2"><small><i>RESULT = 'number of entries' * 10</i></small></div>
+  <div class="mb-2"><small><i>number of entries: {{configsCount$ | async}}</i></small></div>
+  <div class="mb-2"><small><i>Nullish result returned from selector if size of array is 3.</i></small></div>
+
+  <h6 class="card p-2 bg-gradient mb-3">Protection in template: {{((configsWithError$ | async) ?? []).length * 10}}</h6>
+
+  <!--
+  <h6 class="card p-2 bg-gradient mb-3">Protection in controller: {{(configsWithErrorFixedInController$ | async)!.length * 10}}</h6>
+
+  <h6 class="card p-2 bg-gradient mb-3">Safe selector: {{(configsWithSafeSelector$ | async)!.length * 10}}</h6>
+
+  <div class="card bg-warning p-2">
+    <h6 class="card p-2 bg-gradient mb-3">No protection: {{(configsWithError$ | async)!.length * 10}}</h6>
+    <small><i>It cannot work on nullish result -> error on console</i></small>
+  </div>
+  -->
+</div>
