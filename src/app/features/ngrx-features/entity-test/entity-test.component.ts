@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Config } from './entity-test.model';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { selectAllConfigs, selectConfig } from './store/config.selectors';
-import { addConfig, addConfigs, deleteConfig, upsertConfig } from './store/config.actions';
-import { ConfigState } from './store/config.reducer';
+import { addConfigs, deleteConfig, upsertConfig } from './store/config.actions';
 
 export const CONFIG1 = 'config1';
 export const CONFIG2 = 'config2';

@@ -1,0 +1,25 @@
+<div class="mt-5 mb-5">
+  <h3>Expressions calculated from (sometimes nullish) selector</h3>
+  <div class="mb-2"><small><i>RESULT = 'number of entries' * 10</i></small></div>
+
+  <div class="card p-1 mb-2" [ngClass]="{'blink_me': (configsCount$ | async)?.value === ERROR_IF_COUNT}">
+    <small><i>Number of entries: {{(configsCount$ | async)?.value}}.<br>Nullish result returned from selector if size of array is {{ERROR_IF_COUNT}}.</i></small>
+  </div>
+  <!--
+  <ng-container *ngIf="configsCount$ | async as count">
+    <div class="card p-1 mb-2" [ngClass]="{'bg-warning': count.value === ERROR_IF_COUNT}"><small><i>Number of entries: {{count.value}}.<br>Nullish result returned from selector if size of array is {{ERROR_IF_COUNT}}.</i></small></div>
+  </ng-container>
+  -->
+  <div class="mb-2"><small><i></i></small></div>
+
+  <h6 class="card p-2 bg-gradient mb-3">Protection in template: {{((configsWithError$ | async) ?? []).length * 10}}</h6>
+
+  <h6 class="card p-2 bg-gradient mb-3">Protection in controller: {{(configsWithErrorFixedInController$ | async)!.length * 10}}</h6>
+
+  <h6 class="card p-2 bg-gradient mb-3">Safe selector: {{(configsWithSafeSelector$ | async)!.length * 10}}</h6>
+
+  <div class="card bg-warning p-2">
+    <span class="mb-2"><small><i>It cannot work on nullish result -> error on console</i></small></span>
+    <h6 class="card p-2 bg-gradient">No protection: {{(configsWithError$ | async)!.length * 10}}</h6>
+  </div>
+</div>

@@ -34,8 +34,7 @@
 <app-entity-test-monitor></app-entity-test-monitor>
 <app-entity-test-dump></app-entity-test-dump>
 
-<!--
--->
 <h3>{{((configs$ | async) ?? []).length + 5}}</h3>
 
-<app-entity-table *ngIf="((configs$ | async) ?? []).length !== 5"></app-entity-table>
+<app-entity-table *ngIf="configs$ | async"></app-entity-table>
+<app-nullish-test></app-nullish-test>
