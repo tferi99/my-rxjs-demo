@@ -40,17 +40,20 @@ export class CombineComponent implements OnInit, AfterViewInit {
 
   offset: number = 0;
 
-  childSource1$: Observable<number> = interval(3000).pipe(
+  childSource0$: Observable<number> = interval(3000).pipe(
     watch('BaseInterval', RXJS_WATCH_DURATION),
+  );
+
+  childSource1$: Observable<number> = this.childSource0$.pipe(
     share()
   );
 
-  childSource2$: Observable<number> = this.childSource1$.pipe(
+  childSource2$: Observable<number> = this.childSource0$.pipe(
     share(),
     map((val) => val * 10)
   );
 
-  childSource3$: Observable<number> = this.childSource1$.pipe(
+  childSource3$: Observable<number> = this.childSource0$.pipe(
     share(),
     map((val) => val * 100)
   );
@@ -64,6 +67,7 @@ export class CombineComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     //console.log('SOURCE1:', this.wlfClickSource);
 
+    //------------------------ withLatestFrom ------------------------
     this.wlfClickWithChild$ = fromEvent(
       this.wlfClickSource.nativeElement,
       'click'
@@ -77,14 +81,13 @@ export class CombineComponent implements OnInit, AfterViewInit {
         this.childSource2$,
         this.childSource3$
       ),
-
       watch('Click[withLatestFrom]', RXJS_WATCH_DURATION)
     );
     this.wlfClickWithChild$.subscribe({
       next: (value: any) => console.log('CLICK withLatestFrom:', value),
     });
 
-    // withLatestFrom
+    //------------------------ combineLatestWith ------------------------
     this.clwClickWithChild$ = fromEvent(
       this.clwClickSource.nativeElement,
       'click'
@@ -98,14 +101,13 @@ export class CombineComponent implements OnInit, AfterViewInit {
         this.childSource2$,
         this.childSource3$
       ),
-
       watch('Click[combineLatestWith]', RXJS_WATCH_DURATION)
     );
     this.clwClickWithChild$.subscribe({
       next: (value: any) => console.log('CLICK combineLatestWith:', value),
     });
 
-    // custom
+    //------------------------ withLatestFrom + offset ------------------------
     this.customClickWithChild$ = fromEvent(
       this.customClickSource.nativeElement,
       'click'

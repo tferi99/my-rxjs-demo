@@ -20,7 +20,7 @@ const routes: Routes = [
       ),
   },
 
-  { path: '', redirectTo: '/ngrx/entity', pathMatch: 'full' }, // default
+  { path: '', redirectTo: '/rxjs/combine', pathMatch: 'full' }, // default
   { path: '**', component: Page404Component },
 ];
 
