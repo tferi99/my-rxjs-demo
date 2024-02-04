@@ -17,15 +17,13 @@ import {
   tap,
   withLatestFrom,
 } from 'rxjs';
-import { watch } from 'rxjs-watcher';
 import { select, Store } from '@ngrx/store';
 import {
   selectCounter1,
   selectCounter2,
   selectCounter3,
 } from '../../../store/app.selectors';
-
-const RXJS_WATCH_DURATION = 30;
+import { tag } from 'rxjs-spy/cjs/operators';
 
 @Component({
   selector: 'app-combine',
@@ -41,7 +39,7 @@ export class CombineComponent implements OnInit, AfterViewInit {
   offset: number = 0;
 
   childSource0$: Observable<number> = interval(3000).pipe(
-    watch('BaseInterval', RXJS_WATCH_DURATION),
+    tag('BaseInterval'),
   );
 
   childSource1$: Observable<number> = this.childSource0$.pipe(
@@ -72,6 +70,7 @@ export class CombineComponent implements OnInit, AfterViewInit {
       this.wlfClickSource.nativeElement,
       'click'
     ).pipe(
+      tag('withLatestFrom'),
       //tap((ev: any) => console.log('click', ev)),
       map((ev: any) => (ev as PointerEvent).x),
 
@@ -81,7 +80,6 @@ export class CombineComponent implements OnInit, AfterViewInit {
         this.childSource2$,
         this.childSource3$
       ),
-      watch('Click[withLatestFrom]', RXJS_WATCH_DURATION)
     );
     this.wlfClickWithChild$.subscribe({
       next: (value: any) => console.log('CLICK withLatestFrom:', value),
@@ -92,6 +90,7 @@ export class CombineComponent implements OnInit, AfterViewInit {
       this.clwClickSource.nativeElement,
       'click'
     ).pipe(
+      tag('combineLatestWith'),
       //tap((ev: any) => console.log('click', ev)),
       map((ev: any) => (ev as PointerEvent).x),
 
@@ -101,7 +100,6 @@ export class CombineComponent implements OnInit, AfterViewInit {
         this.childSource2$,
         this.childSource3$
       ),
-      watch('Click[combineLatestWith]', RXJS_WATCH_DURATION)
     );
     this.clwClickWithChild$.subscribe({
       next: (value: any) => console.log('CLICK combineLatestWith:', value),
@@ -112,6 +110,7 @@ export class CombineComponent implements OnInit, AfterViewInit {
       this.customClickSource.nativeElement,
       'click'
     ).pipe(
+      tag('custom'),
       //tap((ev: any) => console.log('offset: ', this.offset)),
       //tap((ev: any) => console.log('click', ev)),
       map((ev: any) => (ev as PointerEvent).x),
@@ -139,8 +138,6 @@ export class CombineComponent implements OnInit, AfterViewInit {
         //      (action, data) => data
       ),
       tap((val) => console.log('CUSTOM 3:', val)),
-
-      watch('Click[custom]', RXJS_WATCH_DURATION)
     );
     this.customClickWithChild$.subscribe({
       next: (value: any) => console.log('CLICK custom:', value),
