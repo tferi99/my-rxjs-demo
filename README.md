@@ -1,4 +1,4 @@
-# MyRxDemo
+# MyRxJsDemo
 
 To demonstrate RxJS and NgRx cases and problems.
 

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "my-rx-demo": {
+    "my-rxjs-demo": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/my-rx-demo",
+            "outputPath": "dist/my-rxjs-demo",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,11 +72,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "my-rx-demo:build:production",
+              "browserTarget": "my-rxjs-demo:build:production",
               "port": 4201
             },
             "development": {
-              "browserTarget": "my-rx-demo:build:development",
+              "browserTarget": "my-rxjs-demo:build:development",
               "port": 4201
             }
           },
@@ -85,7 +85,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "my-rx-demo:build"
+            "browserTarget": "my-rxjs-demo:build"
           }
         },
         "test": {
